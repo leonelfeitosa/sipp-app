@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Historico
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-icon name="person" class="iconepessoa"></ion-icon>
+<h1 class="nome">{{ objeto_feed.name }}</h1>
+<p class="nome">Data Inicio: {{ objeto_feed.date }}</p>
+
+  <ion-list inset>
+    <p>{{objeto_feed.datas}}</p>
+    <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+      {{ objeto_feed.data(1) }}
+    </button> 
+  </ion-list>
+
+</ion-content>
