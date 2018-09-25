@@ -47,6 +47,8 @@ export class LoginPage {
         localStorage.setItem('token', this.retornoLogin.token);
         localStorage.setItem('expires', this.retornoLogin.expires);
       });
+
+     
     }
     format(valString) {
       if (!valString) {
