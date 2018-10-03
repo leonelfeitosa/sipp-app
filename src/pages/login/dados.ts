@@ -11,7 +11,8 @@ import { HttpClient } from '@angular/common/http'
 export class DadosPage {
   token: string;
   expires: string;
-  constructor(public modalCtrl: ModalController, 
-    ){} 
+  user: string;
+  constructor(public modalCtrl: ModalController,
+    ){}
 
   }

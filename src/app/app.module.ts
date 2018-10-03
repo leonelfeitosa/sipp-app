@@ -7,44 +7,43 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { Pipe, PipeTransform } from '@angular/core';
 import { IonMaskModule } from '@pluritech/ion-mask';
 import { HttpClientModule } from '@angular/common/http'
-import { EvolucaoPage } from '../pages/evolucao/evolucao';
 import { HistoricoPage } from '../pages/historico/historico';
 import { LoginPage } from '../pages/login/login';
+import { MostraHistoricoPage } from '../pages/mostra-historico/mostra-historico';
 
 @NgModule({
-  declarations: 
+  declarations:
   [
     TabsPage,
     MyApp,
     LoginPage,
     HistoricoPage,
-    EvolucaoPage
-    
+    MostraHistoricoPage,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp),
-    IonMaskModule.forRoot()
-
+    IonicModule.forRoot(MyApp, {
+      backButtonText: 'Voltar'
+     }),
+    IonMaskModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     TabsPage,
     MyApp,
     HistoricoPage,
-    EvolucaoPage,
-    LoginPage
-    
+    LoginPage,
+    MostraHistoricoPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
-    
+
   ]
 })
 export class AppModule {}

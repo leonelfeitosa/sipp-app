@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http'
 import { DadosPage } from './dados';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators/map';
+import { HistoricoPage } from '../historico/historico';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -25,30 +26,41 @@ export class LoginPage {
   senha: string;
   retornoLogin: DadosPage = new DadosPage(this.modalCtrl);
   apiUrl = 'http://localhost:3000/api/v1/';
+  mensagem: string;
 
-  constructor(public modalCtrl: ModalController, 
+  constructor(public modalCtrl: ModalController,
     private alertCtrl: AlertController,
     private menu: MenuController,
     public navCtrl: NavController,
-    private http: HttpClient 
-    ){} 
-  
+    private http: HttpClient
+    ){
+      this.logout();
+    }
+
     ionViewDidEnter() {
       this.menu.swipeEnable(false);
     }
     ionViewWillLeave(){
       this.menu.swipeEnable(true);
     }
-  
+
     logar() {
       this.http.post(this.apiUrl+'login', {cpf: this.cpf, senha: this.senha, usuario: 'Paciente'})
       .subscribe((data: DadosPage) => {
         this.retornoLogin = data;
-        localStorage.setItem('token', this.retornoLogin.token);
-        localStorage.setItem('expires', this.retornoLogin.expires);
+        localStorage.setItem('tokenAppPM', this.retornoLogin.token);
+        localStorage.setItem('expiresAppPM', this.retornoLogin.expires);
+        localStorage.setItem('idUsuaAppPM', this.retornoLogin.user);
+        this.navCtrl.push(HistoricoPage);
+      }, error => {
+        this.mensagem = error.error.msg;
+        console.log(this.mensagem);
       });
-
-     
+    }
+    logout(){
+      localStorage.setItem('tokenAppPM', '');
+      localStorage.setItem('expiresAppPM', '');
+      localStorage.setItem('idUsuaAppPM', '');
     }
     format(valString) {
       if (!valString) {
@@ -65,20 +77,20 @@ export class LoginPage {
         return this.maskedId;
       }
   };
-  
+
   unFormat(val) {
       if (!val) {
           return '';
       }
       val = val.replace(/\D/g, '');
-  
+
       if (this.GROUP_SEPARATOR === ',') {
           return val.replace(/,/g, '');
       } else {
           return val.replace(/\./g, '');
       }
   };
-  
+
    cpf_mask(v) {
       v = v.replace(/\D/g, ''); //Remove tudo o que não é dígito
       v = v.replace(/(\d{3})(\d)/, '$1.$2'); //Coloca um ponto entre o terceiro e o quarto dígitos
@@ -87,7 +99,7 @@ export class LoginPage {
       v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2'); //Coloca um hífen entre o terceiro e o quarto dígitos
       return v;
   }
-  
+
    cnpj(v) {
       v = v.replace(/\D/g, ''); //Remove tudo o que não é dígito
       v = v.replace(/^(\d{2})(\d)/, '$1.$2'); //Coloca ponto entre o segundo e o terceiro dígitos
@@ -96,5 +108,5 @@ export class LoginPage {
       v = v.replace(/(\d{4})(\d)/, '$1-$2'); //Coloca um hífen depois do bloco de quatro dígitos
       return v;
   }
-  
+
   }

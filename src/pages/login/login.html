@@ -1,35 +1,36 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar hideBackButton>
     <ion-title>Login</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  
-  <div class="centro">
-  <ion-list>  
-    <img class="logo" src="assets/imgs/logops.png">
-  
-    <ion-list>
 
-      
+  <div class="centro">
+  <ion-list>
+    <img class="logo" src="assets/imgs/logops.png">
+    <ion-list>
+      <div class="mensagem" role="alert">
+          {{ mensagem }}
+      </div>
+
 <form #loginForm="ngForm">
   <ion-item>
     <ion-label floating>CPF</ion-label>
-    <ion-input [(ngModel)]="cpf" (blur)="cpf_cnpj = format(cpf_cnpj)" name="cpf_cnpj"></ion-input>
+    <ion-input type="text" [(ngModel)]="cpf" (blur)="cpf_cnpj = format(cpf_cnpj)" name="cpf_cnpj"></ion-input>
   </ion-item>
 </form>
       <ion-item>
         <ion-label floating>Senha</ion-label>
         <ion-input type="password" [(ngModel)]="senha"></ion-input>
       </ion-item>
-    
-    </ion-list>
-    
-    <button ion-button full class="botaologin" (click)="logar()">Login</button>
 
-  
-  
+    </ion-list>
+
+    <button ion-button full class="botaologin" (click)="logar()">Entrar  <i id="entrar" class="fa fa-sign-in fa-lg" aria-hidden="true"></i></button>
+
+
+
   </ion-list>
 
 </div>
