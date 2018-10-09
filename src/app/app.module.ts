@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http'
 import { HistoricoPage } from '../pages/historico/historico';
 import { LoginPage } from '../pages/login/login';
 import { MostraHistoricoPage } from '../pages/mostra-historico/mostra-historico';
+import { DadosPage } from '../pages/login/dados';
+import { BackgroundMode } from '@ionic-native/background-mode';
 
 @NgModule({
   declarations:
@@ -22,6 +24,7 @@ import { MostraHistoricoPage } from '../pages/mostra-historico/mostra-historico'
     LoginPage,
     HistoricoPage,
     MostraHistoricoPage,
+    DadosPage
   ],
   imports: [
     BrowserModule,
@@ -37,13 +40,14 @@ import { MostraHistoricoPage } from '../pages/mostra-historico/mostra-historico'
     MyApp,
     HistoricoPage,
     LoginPage,
-    MostraHistoricoPage
+    MostraHistoricoPage,
+    DadosPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
-
+    BackgroundMode,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })
 export class AppModule {}

@@ -1,8 +1,15 @@
 page-mostra-historico {
   .historico{
     width: 100%;
-    border-style: outset;
     text-align: justify;
-    padding: 2px;
+    padding: 5px;
+  }
+  h3{
+    text-align: center;
+  }
+  p{
+    font-size: 0.8em;
+    text-align: justify;
+    margin-left: 5px;
   }
 }

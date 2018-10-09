@@ -14,11 +14,11 @@
 <ion-content padding>
   <ion-icon name="person" class="iconepessoa"></ion-icon>
 <h2 class="nome">{{ dadosPaciente.nome }}</h2>
-<p class="nome">Data Início: {{ data | date: 'dd/MM/yyyy' }}</p>
+<p *ngIf="existe" class="nome">Data Início: {{ data | date: 'dd/MM/yyyy' }}</p>
+<p *ngIf="!existe" class="nome"> Não possui consultas. </p>
 
 <ion-list>
-  <ion-item></ion-item>
-  <button ion-item *ngFor="let item of listaConsultasTodas" (click)="buscaHistorico(item._id, item.historico)">
+  <button ion-item *ngFor="let item of listaConsultasTodas" (click)="buscaHistorico(item._id, item.historico, item.data, item.titulo)">
     {{item.data | date: 'dd/MM/yyyy'}}
   </button>
 </ion-list>

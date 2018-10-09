@@ -19,6 +19,8 @@
 
 
 <ion-content padding>
+  <h3>{{titulo}}</h3>
+  <p class="data">{{data | date: 'dd/MM/yyyy'}}</p>
   <ion-item class="historico" [innerHTML]="historico">
   </ion-item>
 </ion-content>

@@ -4,18 +4,20 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoginPage } from '../login/login';
 import { MostraHistoricoPage } from '../mostra-historico/mostra-historico';
 import * as io from 'socket.io-client';
+import { BackgroundMode } from '@ionic-native/background-mode';
 
 @Component({
   selector: 'page-historico',
   templateUrl: 'historico.html'
 })
 export class HistoricoPage {
-  apiUrl = 'http://localhost:3000/api/v1/';
+  apiUrl = 'http://162.243.161.30:3015/api/v1/';
   token: string;
   expires: string;
   socket:any;
   idUsu: string;
   notificacao: string;
+  existe: boolean = true;
   public dadosPaciente: any = {
     nome: ""
   }
@@ -26,7 +28,8 @@ export class HistoricoPage {
 
   headers: HttpHeaders;
 
-  constructor(public navCtrl: NavController, public http: HttpClient, private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public http: HttpClient, private alertCtrl: AlertController, private backgroundMode: BackgroundMode) {
+    this.backgroundMode.enable();
     this.headers = new HttpHeaders();
     this.token = localStorage.getItem("tokenAppPM");
     this.expires = localStorage.getItem("expiresAppPM");
@@ -35,7 +38,7 @@ export class HistoricoPage {
       this.navCtrl.push(LoginPage);
     }
     this.idUsu = localStorage.getItem('idUsuaAppPM');
-    this.socket = io('http://localhost:4555');
+    this.socket = io('http://162.243.161.30:4555');
     this.receive();
     this.buscaPaciente();
     this.buscaConsultas();
@@ -57,7 +60,10 @@ export class HistoricoPage {
         this.listaConsultasTodas = res;
         if(this.listaConsultasTodas.length > 0){
           this.data = res[0].data;
+          this.existe = true;
           console.log(this.data);
+        }else{
+          this.existe = false;
         }
       }, error => {
         console.log("error");
@@ -65,15 +71,18 @@ export class HistoricoPage {
     });
   }
 
-  buscaHistorico(id, historico){
+  buscaHistorico(id, historico, data, titulo){
     this.navCtrl.push(MostraHistoricoPage, {
       id: id,
-      historico: historico
+      historico: historico,
+      titulo: titulo,
+      data: data
     });
   }
 
   sair(){
     this.navCtrl.push(LoginPage, {
+      sair: '1'
     });
   }
 

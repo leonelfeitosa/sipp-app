@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { MostraHistoricoPage } from './mostra-historico';
+//import { MostraHistoricoPage } from './mostra-historico';
 
 @NgModule({
   declarations: [
-    MostraHistoricoPage,
+    //MostraHistoricoPage,
   ],
   imports: [
-    IonicPageModule.forChild(MostraHistoricoPage),
+    //IonicPageModule.forChild(MostraHistoricoPage),
   ],
 })
 export class MostraHistoricoPageModule {}

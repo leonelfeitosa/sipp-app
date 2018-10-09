@@ -25,16 +25,26 @@ export class LoginPage {
   cpf: string;
   senha: string;
   retornoLogin: DadosPage = new DadosPage(this.modalCtrl);
-  apiUrl = 'http://localhost:3000/api/v1/';
+  apiUrl = 'http://162.243.161.30:3015/api/v1/';
   mensagem: string;
+  expires: string;
+  sair: string;
 
   constructor(public modalCtrl: ModalController,
     private alertCtrl: AlertController,
     private menu: MenuController,
     public navCtrl: NavController,
-    private http: HttpClient
+    private http: HttpClient,
+    public navParams: NavParams
     ){
-      this.logout();
+      this.sair = navParams.get('sair');
+      if(this.sair){
+        this.logout();
+      }
+      this.expires = localStorage.getItem("expiresAppPM");
+      if(new Date(this.expires) > new Date() && this.expires != '') {
+        this.navCtrl.push(HistoricoPage);
+      }
     }
 
     ionViewDidEnter() {

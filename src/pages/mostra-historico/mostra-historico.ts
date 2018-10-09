@@ -19,6 +19,8 @@ export class MostraHistoricoPage{
   headers: HttpHeaders;
   id: string;
   historico: string;
+  titulo: string;
+  data: string;
   token: string;
   expires: string;
   socket:any;
@@ -27,7 +29,7 @@ export class MostraHistoricoPage{
   public dadoHistorico: any = {
     historico: ""
   }
-  apiUrl = 'http://localhost:3000/api/v1/';
+  apiUrl = 'http://162.243.161.30:3015/api/v1/';
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, private alertCtrl: AlertController) {
     this.headers = new HttpHeaders();
     this.token = localStorage.getItem("tokenAppPM");
@@ -38,8 +40,10 @@ export class MostraHistoricoPage{
     }
      this.id = navParams.get('id');
      this.historico = navParams.get('historico');
+     this.titulo = navParams.get('titulo');
+     this.data = navParams.get('data');
      this.idUsu = localStorage.getItem('idUsuaAppPM');
-     this.socket = io('http://localhost:4555');
+     this.socket = io('http://162.243.161.30:4555');
      this.receive();
   }
 
@@ -64,6 +68,8 @@ export class MostraHistoricoPage{
                 this.http.get(this.apiUrl+'paciente-mobile/consultas/atualizada/'+this.id, {headers: this.headers}).subscribe(res => {
                   this.dadoHistorico = res;
                   this.historico = this.dadoHistorico.historico;
+                  this.titulo = this.dadoHistorico.titulo;
+                  this.data = this.dadoHistorico.data;
                 }, error => {
                   console.log("error");
                 });
@@ -74,6 +80,7 @@ export class MostraHistoricoPage{
 
   sair(){
     this.navCtrl.push(LoginPage, {
+      sair: '1'
     });
   }
 }
