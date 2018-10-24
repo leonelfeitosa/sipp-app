@@ -64,10 +64,10 @@ export class LoginPage {
         this.navCtrl.push(HistoricoPage);
       }, error => {
         this.mensagem = error.error.msg;
-        console.log(this.mensagem);
-        alert("CPF ou Senha Incorretos");
+        console.log("CPF ou Senha Incorretos");
+        
       });
-    }
+    } 
     logout(){
       localStorage.setItem('tokenAppPM', '');
       localStorage.setItem('expiresAppPM', '');

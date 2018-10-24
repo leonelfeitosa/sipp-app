@@ -3,10 +3,12 @@
  <div class="fundo1">
  
 
-  <h3><br>{{titulo}}</h3>
+  <h3 class="tituloconsulta"><br>{{titulo}}</h3>
   <p class="data ori">{{data | date: 'dd/MM/yyyy'}}</p>
 
-</div>
-  <p class="margem" [innerHTML]="historico">
+  <p class="margem fundo2" [innerHTML]="historico">
   </p>
+
+</div>
+
 </ion-content>

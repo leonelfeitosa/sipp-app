@@ -40,4 +40,17 @@ page-historico {
     margin-right: 25px;
 }
 
+.italico{
+    font-style: italic;
+}
 
+
+.nomepaciente{
+    max-width: 40ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+    margin-right: 5px;
+  
+  }
