@@ -1,14 +1,10 @@
 
 <ion-content #popoverContent class="popover-page">
- <div class="fundo">
-  <ion-fab bottom right top class="tam" >
-    <button ion-button icon-only (click)="sair()">  <ion-icon name="md-log-out"></ion-icon>
-    </button>
-     
-  </ion-fab>
+ <div class="fundo1">
+ 
 
   <h3><br>{{titulo}}</h3>
-  <p class="data">{{data | date: 'dd/MM/yyyy'}}</p>
+  <p class="data ori">{{data | date: 'dd/MM/yyyy'}}</p>
 
 </div>
   <p class="margem" [innerHTML]="historico">

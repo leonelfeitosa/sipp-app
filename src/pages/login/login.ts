@@ -65,6 +65,7 @@ export class LoginPage {
       }, error => {
         this.mensagem = error.error.msg;
         console.log(this.mensagem);
+        alert("CPF ou Senha Incorretos");
       });
     }
     logout(){

@@ -1,5 +1,4 @@
 page-historico {
-
 }
 .iconepessoa{
     display: block;
@@ -18,26 +17,27 @@ page-historico {
 
 
 .fundo{
-    background:#4786b3;
+    background-color:#4786b3;
     color: aliceblue;
 }
 
 .titulomenu{
-    font-size: 90px;
+    font-size: 110px;
     font-weight: bold;
-
+    text-transform: capitalize;
 }
 
-.cor{
-    background:#4786b3;
-    color: aliceblue;
-    position: absolute;    
-    float: right;
-   
-}
+
  .button-inner{
         color: #fff;
         background-color: #4786b3;
         background-origin: padding-box;
 
 }
+
+.margem{
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+

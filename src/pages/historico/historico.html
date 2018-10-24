@@ -9,11 +9,13 @@
       <h2 class="nome">{{ dadosPaciente.nome }}</h2>
         <p *ngIf="existe" class="nome margem">Data Início: {{ data | date: 'dd/MM/yyyy' }}</p>
         <p *ngIf="!existe" class="nome margem"> Não possui consultas. </p>
-  </div>
 
     <ion-list>
       <button class="borda" ion-item *ngFor="let item of listaConsultasTodas" (click)="buscaHistorico(item._id, item.historico, item.data, item.titulo)">
           <p class="titulomenu">{{item.titulo}}</p> {{item.data | date: 'dd/MM/yyyy'}} 
       </button>
     </ion-list>
+
+  </div>
+
 </ion-content>

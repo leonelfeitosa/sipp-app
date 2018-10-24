@@ -18,11 +18,11 @@ page-login {
 
 .centro{
     position: relative;
-    top: 25%
+    top: 25%;
 }
 .botaologin{
-    background-color: rgb(116, 178, 240);
-    border-radius: 5px;
+    color: #fff;
+    background-color: #4786b3;
 }
 
 .mensagem{
@@ -34,9 +34,8 @@ page-login {
   border-width: 1px;
   
   border-color: red;
-  border-radius: 25px;    
-
-  background: yellow;
+  border-radius: 5px;    
+  text-transform: uppercase;
 
 }
 
@@ -49,7 +48,6 @@ page-login {
   margin-left: 5px;
 }
 
+.fundo2{
 
-.fundo{
-    background:#4786b3;
 }
