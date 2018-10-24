@@ -2,16 +2,42 @@ page-historico {
 
 }
 .iconepessoa{
-    position: relative;
-    margin-top: auto;
     display: block;
     text-align: center;
-    font-size: 90px;
+    font-size: 80px;
+    position: relative;
+
 }
 .nome{
     margin: auto;
     display: block;
     text-align: center;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+}
+
+
+.fundo{
+    background:#4786b3;
+    color: aliceblue;
+}
+
+.titulomenu{
+    font-size: 90px;
+    font-weight: bold;
+
+}
+
+.cor{
+    background:#4786b3;
+    color: aliceblue;
+    position: absolute;    
+    float: right;
+   
+}
+ .button-inner{
+        color: #fff;
+        background-color: #4786b3;
+        background-origin: padding-box;
+
 }
