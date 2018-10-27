@@ -3,7 +3,7 @@ import { NavController, AlertController } from 'ionic-angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoginPage } from '../login/login';
 import { MostraHistoricoPage } from '../mostra-historico/mostra-historico';
-import * as io from 'socket.io-client';
+//import * as io from 'socket.io-client';
 import { BackgroundMode } from '@ionic-native/background-mode';
 
 @Component({
@@ -38,8 +38,8 @@ export class HistoricoPage {
       this.navCtrl.push(LoginPage);
     }
     this.idUsu = localStorage.getItem('idUsuaAppPM');
-    this.socket = io('http://162.243.161.30:4555');
-    this.receive();
+    //this.socket = io('http://162.243.161.30:4555');
+    //this.receive();
     this.buscaPaciente();
     this.buscaConsultas();
   }
@@ -85,7 +85,7 @@ export class HistoricoPage {
       sair: '1'
     });
   }
-
+/*
   notificacaoAlert() {
     let alert = this.alertCtrl.create({
       title: 'Notificação',
@@ -104,4 +104,5 @@ export class HistoricoPage {
             }
         });
   }
+  */
 }

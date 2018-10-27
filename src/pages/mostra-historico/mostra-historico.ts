@@ -2,7 +2,7 @@ import { Component, Pipe, PipeTransform } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoginPage } from '../login/login';
-import * as io from 'socket.io-client';
+//import * as io from 'socket.io-client';
 /**
  * Generated class for the MostraHistoricoPage page.
  *
@@ -43,14 +43,14 @@ export class MostraHistoricoPage{
      this.titulo = navParams.get('titulo');
      this.data = navParams.get('data');
      this.idUsu = localStorage.getItem('idUsuaAppPM');
-     this.socket = io('http://162.243.161.30:4555');
-     this.receive();
+     //this.socket = io('http://162.243.161.30:4555');
+     //this.receive();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MostraHistoricoPage');
   }
-
+/*
   notificacaoAlert() {
     let alert = this.alertCtrl.create({
       title: 'Notificação',
@@ -77,7 +77,7 @@ export class MostraHistoricoPage{
             }
         });
   }
-
+*/
   sair(){
     this.navCtrl.push(LoginPage, {
       sair: '1'
