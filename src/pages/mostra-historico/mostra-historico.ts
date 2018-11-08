@@ -50,7 +50,7 @@ export class MostraHistoricoPage{
   ionViewDidLoad() {
     console.log('ionViewDidLoad MostraHistoricoPage');
   }
-/*
+
   notificacaoAlert() {
     let alert = this.alertCtrl.create({
       title: 'Notificação',
@@ -77,7 +77,7 @@ export class MostraHistoricoPage{
             }
         });
   }
-*/
+
   sair(){
     this.navCtrl.push(LoginPage, {
       sair: '1'

@@ -9,6 +9,7 @@ import { map } from 'rxjs/operators/map';
 import { HistoricoPage } from '../historico/historico';
 import 'rxjs/add/operator/map';
 
+
 @Component({
   selector: 'page-home',
   templateUrl: 'login.html'
@@ -64,6 +65,15 @@ export class LoginPage {
         this.navCtrl.push(HistoricoPage);
       }, error => {
         this.mensagem = error.error.msg;
+        
+        let alert = this.alertCtrl.create({
+          title: 'CPF ou Senha Incorretos',
+          subTitle: 'Verifique os dados e tente novamente.'
+         
+        });
+    
+        alert.present();
+        
         console.log("CPF ou Senha Incorretos");
         
       });

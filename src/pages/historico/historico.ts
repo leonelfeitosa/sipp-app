@@ -85,7 +85,7 @@ export class HistoricoPage {
       sair: '1'
     });
   }
-/*
+
   notificacaoAlert() {
     let alert = this.alertCtrl.create({
       title: 'Notificação',
@@ -104,5 +104,5 @@ export class HistoricoPage {
             }
         });
   }
-  */
+  
 }
